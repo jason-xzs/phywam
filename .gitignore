@@ -1,0 +1,53 @@
+# Experiment outputs and large artifacts
+/train_out/
+/logs/
+/wandb/
+/visualization/
+**/checkpoints/
+**/checkpoint_*/
+**/checkpoint-*/
+**/output/
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.wandb
+*.log
+*.pid
+pids.txt
+
+# Large packaged/demo material
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.mp4
+*.avi
+*.mov
+*.pdf
+/evaluation/i2va/input_data/
+
+# Python and tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# Local environments and secrets
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Local editor and backup files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+*.bak_*
