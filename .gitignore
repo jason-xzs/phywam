@@ -3,6 +3,8 @@
 /logs/
 /wandb/
 /visualization/
+**/logs/
+**/wandb/
 **/checkpoints/
 **/checkpoint_*/
 **/checkpoint-*/

@@ -7,11 +7,20 @@ Key entry points:
 - `wan_va/modules/model.py`: physics memory projection, late-block physics attention, and learned gates.
 - `wan_va/train.py`: frozen-backbone PhyWAM training and condition dropout.
 - `wan_va/wan_va_server.py`: online physics encoding and phase-memory updates.
+- `physics_encoder/mope-jepa/`: MoPE-JEPA physical encoder, fine-tuning, event prediction, and v3.6 token extraction code.
 - `script/run_va_posttrain_freeze_phys_only_4gpu.sh`: primary training launcher.
 - `evaluation/robotwin/launch_server_multigpus.sh`: primary RoboTwin inference launcher.
 - `explain.md` and `deep-explain.md`: implementation-level documentation.
 
-Large experiment artifacts are intentionally excluded from Git: checkpoints, training outputs, logs, W&B runs, cached data, videos, archives, and local evaluation inputs. The upstream physics-encoder checkout referenced by the launchers is not copied into this repository because this upload is scoped strictly to `phywam_v3_adapter_exp`.
+Large experiment artifacts are intentionally excluded from Git: checkpoints, training outputs, logs, W&B runs, cached data, videos, archives, and local evaluation inputs. The MoPE-JEPA source used by 5-v3.6 is included under `physics_encoder/mope-jepa/`; its checkpoints and datasets remain external and must be supplied through `MOPE_CKPT` and `PHYS_EVENT_LABEL_PATH`.
+
+For a portable launch, point the runtime to the bundled encoder:
+
+```bash
+export MOPE_REPO="$PWD/physics_encoder/mope-jepa"
+export MOPE_CKPT=/path/to/mope-jepa-checkpoint.pth
+export PHYS_EVENT_LABEL_PATH=/path/to/event-labels.json
+```
 
 For online W&B logging, provide `WANDB_API_KEY` through the environment; no API key is stored in this repository.
 
